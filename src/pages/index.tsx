@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+// import React  from 'react';
 import {
   Container,
   Button,
@@ -22,10 +22,20 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <SiteNav />
       <Container>
-        <SiteNav />
         <Text h1>Plan your next road trip with ease.</Text>
+        <Spacer y={1} />
+        <Text h3>Enter your starting location and destination.</Text>
+        <Spacer y={1} />
+        <Container className={styles.tall}>
+        </Container>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, maxime fugit similique obcaecati magni placeat quae cupiditate beatae nihil perspiciatis rem saepe, molestiae accusantium dolor odit blanditiis officiis molestias nostrum?
+        </Text>
       </Container>
+      
+      
     </div>
   );
 }
