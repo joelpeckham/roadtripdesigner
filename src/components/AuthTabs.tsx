@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TabView, TabPanel } from "primereact/tabview";
 import { RegisterForm } from "@/components/RegisterForm";
+import { LoginForm } from "@/components/LoginForm";
 
 interface AuthTabsProps {
   closeModal: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -14,7 +15,7 @@ export const AuthTabs = ({closeModal}:AuthTabsProps) => {
     >
       <TabPanel header="Login">
         <div className="pl-2 pr-2">
-          <RegisterForm closeModalFunction={closeModal}/>
+          <LoginForm closeModalFunction={closeModal}/>
         </div>
       </TabPanel>
       <TabPanel header="Register">
