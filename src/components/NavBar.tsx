@@ -1,9 +1,6 @@
-import { Button } from "primereact/button";
-import { AuthModal } from "@/components/AuthModal";
-import { MutableRefObject, useRef } from "react";
+import { LoginButton } from "@/components/LoginButton";
 
 export const NavBar = () => {
-  const overlayPanel: MutableRefObject<any> | null = useRef(null);
   const start = (
     <div className="flex gap-2 align-items-center">
       <i className="pi pi-car"></i>
@@ -12,11 +9,7 @@ export const NavBar = () => {
       </p>
     </div>
   );
-  const end = (
-    <div className="flex gap-2">
-      <Button label="login" onClick={(e) => overlayPanel.current.toggle(e)} />
-    </div>
-  );
+  const end = <LoginButton />;
   return (
     <div>
       <div className="relative">
@@ -25,7 +18,6 @@ export const NavBar = () => {
           {end}
         </div>
       </div>
-      <AuthModal refer={overlayPanel} />
     </div>
   );
 };

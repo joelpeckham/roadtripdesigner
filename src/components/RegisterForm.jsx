@@ -9,7 +9,7 @@ import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 
 
-export const RegisterForm = () => {
+export const RegisterForm = ({closeModalFunction}) => {
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
     const defaultValues = {
@@ -62,7 +62,7 @@ export const RegisterForm = () => {
 
             <div className="flex justify-content-center">
                 <div className="card">
-                    <h5 className="text-center">Register</h5>
+                    {/* <h5 className="text-center">Register</h5> */}
                     <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
                         <div className="field">
                             <span className="p-float-label">
@@ -94,7 +94,16 @@ export const RegisterForm = () => {
                             </span>
                             {getFormErrorMessage('password')}
                         </div>
-                        <Button type="submit" label="Submit" className="mt-2" />
+                        <div className='formgrid grid'>
+                            <div className="field col m-0">
+                                <Button type='button' label='Cancel' className="mt-2 p-button-text p-button-danger" onClick={(e)=>closeModalFunction(e)}/>
+                            </div>
+                            <div className="field col m-0">
+                                <Button type="submit" label="Submit" className="mt-2" />
+                            </div>
+                            {/* <Button type='button' label='Cancel' className="p-button-text p-button-danger" />
+                            <Button type="submit" label="Submit" className="mt-2" /> */}
+                        </div>
                     </form>
                 </div>
             </div>
