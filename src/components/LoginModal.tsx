@@ -30,7 +30,7 @@ export const LoginModal = ({visible, closeModal}:LoginModalProps) => {
             fullWidth
             color="primary"
             size="lg"
-            placeholder="Email"
+            placeholder="jamesbond@MI6.gov.uk"
             contentLeft={<Mail fill="currentColor" />}
             label="Email"
           />
@@ -40,7 +40,7 @@ export const LoginModal = ({visible, closeModal}:LoginModalProps) => {
             fullWidth
             color="primary"
             size="lg"
-            placeholder="Password"
+            placeholder="vesperLyndf0rever!"
             contentLeft={<Password fill="currentColor" />}
             label="Password"
           />

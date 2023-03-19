@@ -1,5 +1,5 @@
 // NextUI Navbar Component
-import { Navbar, Button, Link, Text, Image, Spacer } from "@nextui-org/react";
+import { Navbar, Button, Text} from "@nextui-org/react";
 import { useState } from "react";
 import { LoginModal } from "./LoginModal";
 export const SiteNav = () => {
