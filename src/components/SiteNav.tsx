@@ -2,11 +2,14 @@
 import { Navbar, Button, Text} from "@nextui-org/react";
 import { useState } from "react";
 import { LoginModal } from "./LoginModal";
+import { SignUpModal } from "./SignUpModal";
+
 export const SiteNav = () => {
   const [loginModalVisible, setLoginModalVisible] = useState(false);
+  const [signUpModalVisible, setSignUpModalVisible] = useState(false);
   return (
     <div>
-      <Navbar variant="sticky">
+      <Navbar variant="floating">
         <Navbar.Brand>
           <Text b color="inherit">
             road trip designer.
@@ -19,7 +22,7 @@ export const SiteNav = () => {
             </Button>
           </Navbar.Item>
           <Navbar.Item>
-            <Button auto>
+            <Button auto onPress={() => setSignUpModalVisible(true)}>
               Sign Up
             </Button>
           </Navbar.Item>
@@ -29,6 +32,12 @@ export const SiteNav = () => {
         visible={loginModalVisible}
         closeModal={() => {
           setLoginModalVisible(false);
+        }}
+      />
+      <SignUpModal
+        visible={signUpModalVisible}
+        closeModal={() => {
+          setSignUpModalVisible(false);
         }}
       />
     </div>
