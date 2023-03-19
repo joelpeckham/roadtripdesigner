@@ -14,7 +14,7 @@ export const AuthModalDialog = ({visible, setVisible}:AuthDialogProps,) => {
         visible={visible}
         onHide={() => setVisible(false)}
         modal
-        style={{ width: "90vw" }}
+        style={{ width: "90vw", maxWidth: "400px" }}
       >
         <AuthTabs closeModal={(e)=>setVisible(false)} />
       </Dialog>
