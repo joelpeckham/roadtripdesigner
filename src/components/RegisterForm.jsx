@@ -32,7 +32,7 @@ export const RegisterForm = ({closeModalFunction}) => {
     };
 
     const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus onClick={() => setShowMessage(false)} /></div>;
-    const passwordHeader = <h6>Pick a password</h6>;
+    const passwordHeader = <h5>Password strength</h5>;
     const passwordFooter = (
         <React.Fragment>
             <Divider />
