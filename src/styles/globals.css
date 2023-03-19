@@ -13,4 +13,21 @@ a {
 
 * {
   box-sizing: border-box;
+  --radius: 0.5rem;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.456);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border: 1px solid rgba(255, 255, 255, 0.29);
+}
+.rounded {
+  border-radius: var(--radius);
+}
+.floating {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
