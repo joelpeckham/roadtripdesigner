@@ -4,7 +4,7 @@ import { RegisterForm } from "@/components/RegisterForm";
 import { LoginForm } from "@/components/LoginForm";
 
 interface AuthTabsProps {
-  closeModal: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  closeModal: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null | undefined) => void;
 }
 export const AuthTabs = ({closeModal}:AuthTabsProps) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
