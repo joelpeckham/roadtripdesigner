@@ -48,10 +48,10 @@ const initAuth = () => {
       signed: true,
     },
     onVerifyTokenError: (err) => {
-      console.error(err)
+      if (process.env.NODE_ENV === 'development') console.error(err);
     },
     onTokenRefreshError: (err) => {
-      console.error(err)
+      if (process.env.NODE_ENV === 'development') console.error(err);
     },
   })
 }

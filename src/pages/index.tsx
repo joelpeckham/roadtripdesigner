@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { NavBar } from "@/components/NavBar";
-import Image from "next/image";
 import {
   useAuthUser,
   withAuthUser,
