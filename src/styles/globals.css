@@ -27,6 +27,13 @@ a {
   -webkit-backdrop-filter: blur(4.5px);
   border: 1px solid rgba(255, 255, 255, 0.29);
 }
+
+.whiteNavCard {
+  background: white;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.29);
+}
+
 .rounded {
   border-radius: var(--radius);
 }
