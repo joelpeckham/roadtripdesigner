@@ -38,7 +38,7 @@ export const LoginButton = () => {
 
   return (
     <div>
-      <Button label="login" onClick={(e) => buttonWasClicked(e)} />
+      <Button style={{height:"fit-content"}} label="login" onClick={(e) => buttonWasClicked(e)} />
       {AuthModal}
     </div>
   );
