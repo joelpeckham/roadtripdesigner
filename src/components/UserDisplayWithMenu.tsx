@@ -5,9 +5,11 @@ import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import { UserDisplay } from "@/components/UserDisplay";
 import { useAuthUser } from "next-firebase-auth";
+import { useRouter } from 'next/router';
 
 export const UserDisplayWithMenu = () => {
   const user = useAuthUser();
+  const router = useRouter();
   const menu : MutableRefObject<any> | null  = useRef(null);
   const toast : MutableRefObject<any> | null = useRef(null);
   const items: MenuItem[] = [
@@ -22,6 +24,20 @@ export const UserDisplayWithMenu = () => {
       }
 
     },
+    {
+      label: "Settings",
+      icon: "pi pi-cog",
+      command: () => {
+        router.push('/settings');
+      }
+    },
+    {
+      label: "My Trips",
+      icon: "pi pi-map",
+      command: () => {
+        router.push('/trips');
+      }
+    }
   ];
   
   return (
