@@ -29,8 +29,13 @@ a {
 }
 
 .navWidth {
-  width: 500px;
+  width: 100%;
   transition: width 0.7s ease;
+}
+
+.siteWidth {
+  width: 100vw;
+  max-width: 1000px;
 }
 
 @media screen and (max-width: 575px) {

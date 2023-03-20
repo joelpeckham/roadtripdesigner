@@ -20,7 +20,7 @@ export const NavBar = () => {
     end = loginButton;
   }
   return (
-    <div className="absolute w-screen flex sm:justify-content-end justify-content-center p-3">
+    <div className="w-full flex sm:justify-content-end justify-content-center">
       <div className="rounded glass flex flex-wrap gap-3 align-items-center justify-content-between p-4 navWidth">
         {start}
         {end}

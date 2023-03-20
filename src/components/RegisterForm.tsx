@@ -35,9 +35,9 @@ export const RegisterForm = ({ closeModal: closeModal } : RegisterFormProps) => 
     email: string;
     password: string;
   };
-  const onSubmit = (data : DataShape) => {
+  const onSubmit =  async (data : DataShape) => {
     setFormData(data);
-    createUserWithEmailAndPassword(auth, data.email, data.password)
+    await createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in
         console.log(data.name)

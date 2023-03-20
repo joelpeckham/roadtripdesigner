@@ -31,9 +31,9 @@ export const LoginForm = ({ closeModal }:LoginFormProps) => {
     email: string;
     password: string;
   };
-  const onSubmit = (data:DataShape) => {
+  const onSubmit = async (data:DataShape) => {
     setFormData(data);
-    signInWithEmailAndPassword(auth, data.email, data.password)
+    await signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
