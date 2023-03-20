@@ -1,7 +1,13 @@
 import Head from "next/head";
 import { NavBar } from "@/components/NavBar";
+import {
+  useAuthUser,
+  withAuthUser,
+  withAuthUserTokenSSR,
+} from 'next-firebase-auth'
 
-export default function Home() {
+const Home = () => {
+  const AuthUser = useAuthUser()
   return (
     <div>
       <Head>
@@ -20,3 +26,6 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps = withAuthUserTokenSSR()();
+export default withAuthUser()(Home);
