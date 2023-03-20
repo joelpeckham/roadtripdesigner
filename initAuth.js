@@ -8,10 +8,10 @@ const initAuth = () => {
     loginAPIEndpoint: '/api/login',
     logoutAPIEndpoint: '/api/logout',
     onLoginRequestError: (err) => {
-      console.error(err)
+      if (process.env.NODE_ENV === 'development') console.error(err);
     },
     onLogoutRequestError: (err) => {
-      console.error(err)
+      if (process.env.NODE_ENV === 'development') console.error(err);
     },
     // firebaseAuthEmulatorHost: 'localhost:9099',
     firebaseAdminInitConfig: {
