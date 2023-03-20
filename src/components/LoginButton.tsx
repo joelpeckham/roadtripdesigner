@@ -12,7 +12,7 @@ enum AuthModalType {
 export const LoginButton = () => {
   const width = useWindowSize().width;
   const authModalType =
-    width == undefined || width < 866
+    width == undefined || width < 600
       ? AuthModalType.DIALOG
       : AuthModalType.OVERLAY;
 

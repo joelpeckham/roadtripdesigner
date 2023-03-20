@@ -30,8 +30,8 @@ a {
 .rounded {
   border-radius: var(--radius);
 }
-.floating {
+.floating-right {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
 }

@@ -9,15 +9,13 @@ export const NavBar = () => {
       </p>
     </div>
   );
-  const end = <LoginButton />;
+  const end = (<LoginButton />);
   return (
-    <div>
-      <div className="relative">
-        <div className="fixed glass rounded flex flex-wrap gap-3 justify-content-between p-4 m-5">
+      <div className="absolute w-screen flex justify-content-end p-3">
+        <div className="glass rounded flex flex-wrap gap-3 justify-content-between p-4" style={{maxWidth:"450px", width:"100%"}}>
           {start}
           {end}
         </div>
       </div>
-    </div>
   );
 };

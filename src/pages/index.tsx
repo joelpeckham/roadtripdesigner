@@ -13,6 +13,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
+      <div style={{width:"100vw", height:"100vh"}}>
+        <img src="/annie-spratt-travel-unsplash.jpg" alt="Background Image of Map and travel related items on table." style={{width:"100%", height:"100%", objectFit:"cover"}} />
+      </div>
+      
     </div>
   );
 }
