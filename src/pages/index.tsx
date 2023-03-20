@@ -1,13 +1,14 @@
 import Head from "next/head";
 import { NavBar } from "@/components/NavBar";
+import Image from "next/image";
 import {
   useAuthUser,
   withAuthUser,
   withAuthUserTokenSSR,
-} from 'next-firebase-auth'
+} from "next-firebase-auth";
 
 const Home = () => {
-  const AuthUser = useAuthUser()
+  const AuthUser = useAuthUser();
   return (
     <div>
       <Head>
@@ -19,13 +20,18 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-      <div style={{width:"100vw", height:"100vh"}}>
-        <img src="/annie-spratt-travel-unsplash.jpg" alt="Background Image of Map and travel related items on table." style={{width:"100%", height:"100%", objectFit:"cover"}} />
-      </div>
-      
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          backgroundImage: 'url("bg.webp"),url("bg-small.webp")',
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
     </div>
   );
-}
+};
 
 export const getServerSideProps = withAuthUserTokenSSR()();
 export default withAuthUser()(Home);
