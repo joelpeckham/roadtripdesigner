@@ -1,18 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, MutableRefObject } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Password } from "primereact/password";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword , updateProfile} from "firebase/auth";
 import { auth } from "../../firebase";
 import { Toast } from "primereact/toast";
 import { authErrorToMessage } from "../../authErrorToMessage";
 
-export const RegisterForm = ({ closeModalFunction }) => {
+interface RegisterFormProps {
+  closeModal: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null | undefined) => void;
+}
+
+export const RegisterForm = ({ closeModal: closeModal } : RegisterFormProps) => {
   const [formData, setFormData] = useState({});
-  const toast = useRef(null);
+  const toast : MutableRefObject<any> = useRef(null);
   const defaultValues = {
     name: "",
     email: "",
@@ -26,14 +30,23 @@ export const RegisterForm = ({ closeModalFunction }) => {
     reset,
   } = useForm({ defaultValues });
 
-  const onSubmit = (data) => {
+  type DataShape = {
+    name: string;
+    email: string;
+    password: string;
+  };
+  const onSubmit = (data : DataShape) => {
     setFormData(data);
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        console.log(data.name)
+        updateProfile(auth.currentUser!, {
+          displayName: data.name,
+        })
+        
         try {
-          closeModalFunction();
+          closeModal(null);
         } catch (e) {}
       })
       .catch((error) => {
@@ -42,16 +55,15 @@ export const RegisterForm = ({ closeModalFunction }) => {
           severity: "error",
           summary: "Error",
           detail: authErrorToMessage(errorCode),
-          life: 8000,
+          life: 4000,
         });
       });
-
     reset();
   };
 
-  const getFormErrorMessage = (name) => {
+  const getFormErrorMessage = (name:string) => {
     return (
-      errors[name] && <small className="p-error">{errors[name].message}</small>
+      errors[name as keyof typeof errors] && <small className="p-error">{errors[name as keyof typeof errors]!.message}</small>
     );
   };
   const passwordHeader = <h5>Password strength</h5>;
@@ -167,7 +179,7 @@ export const RegisterForm = ({ closeModalFunction }) => {
                   type="button"
                   label="Cancel"
                   className="mt-2 p-button-text p-button-danger"
-                  onClick={(e) => closeModalFunction(e)}
+                  onClick={(e) => closeModal(e)}
                 />
               </div>
               <div className="field col m-0">

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, MutableRefObject} from "react";
 import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
@@ -9,9 +9,13 @@ import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { authErrorToMessage } from "../../authErrorToMessage";
 
-export const LoginForm = ({ closeModalFunction }) => {
+interface LoginFormProps {
+  closeModal: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null | undefined) => void;
+}
+
+export const LoginForm = ({ closeModal }:LoginFormProps) => {
   const [formData, setFormData] = useState({});
-  const toast = useRef(null);
+  const toast : MutableRefObject<any> = useRef(null);
   const defaultValues = {
     email: "",
     password: "",
@@ -23,15 +27,18 @@ export const LoginForm = ({ closeModalFunction }) => {
     handleSubmit,
     reset,
   } = useForm({ defaultValues });
-
-  const onSubmit = (data) => {
+  type DataShape = {
+    email: string;
+    password: string;
+  };
+  const onSubmit = (data:DataShape) => {
     setFormData(data);
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         try {
-          closeModalFunction();
+          closeModal(null);
         } catch (e) {}
         // ...
       })
@@ -41,15 +48,15 @@ export const LoginForm = ({ closeModalFunction }) => {
           severity: "error",
           summary: "Error",
           detail: authErrorToMessage(errorCode),
-          life: 8000,
+          life: 4000,
         });
         reset();
       });
   };
 
-  const getFormErrorMessage = (name) => {
+  const getFormErrorMessage = (name:string) => {
     return (
-      errors[name] && <small className="p-error">{errors[name].message}</small>
+      errors[name as keyof typeof errors] && <small className="p-error">{errors[name as keyof typeof errors]!.message}</small>
     );
   };
 
@@ -126,7 +133,7 @@ export const LoginForm = ({ closeModalFunction }) => {
                   type="button"
                   label="Cancel"
                   className="mt-2 p-button-text p-button-danger"
-                  onClick={(e) => closeModalFunction(e)}
+                  onClick={(e) => closeModal(e)}
                 />
               </div>
               <div className="field col m-0">

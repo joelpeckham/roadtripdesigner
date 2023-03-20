@@ -15,12 +15,12 @@ export const AuthTabs = ({closeModal}:AuthTabsProps) => {
     >
       <TabPanel header="Login">
         <div className="pl-2 pr-2">
-          <LoginForm closeModalFunction={closeModal}/>
+          <LoginForm closeModal={closeModal}/>
         </div>
       </TabPanel>
       <TabPanel header="Register">
         <div className="pl-2 pr-2">
-          <RegisterForm closeModalFunction={closeModal}/>
+          <RegisterForm closeModal={closeModal}/>
         </div>
       </TabPanel>
     </TabView>

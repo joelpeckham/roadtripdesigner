@@ -1,6 +1,7 @@
 import React, { useRef, MutableRefObject } from "react";
 import { Menu } from "primereact/menu";
 import { MenuItem } from "primereact/menuitem";
+import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import { UserDisplay } from "@/components/UserDisplay";
 import { useAuthUser } from "next-firebase-auth";
@@ -14,56 +15,12 @@ export const UserDisplayWithMenu = () => {
     {
       label: "Sign Out",
       icon: "pi pi-sign-out",
+      style: { fontWeight: "bold", color: "#EF4444"},
+      className: "danger",
       command: () => {
         user.signOut();
       }
 
-    },
-    {
-      label: "Options",
-      items: [
-        {
-          label: "Update",
-          icon: "pi pi-refresh",
-          command: () => {
-            toast.current.show({
-              severity: "success",
-              summary: "Updated",
-              detail: "Data Updated",
-              life: 3000,
-            });
-          },
-        },
-        {
-          label: "Delete",
-          icon: "pi pi-times",
-          command: () => {
-            toast.current.show({
-              severity: "warn",
-              summary: "Delete",
-              detail: "Data Deleted",
-              life: 3000,
-            });
-          },
-        },
-      ],
-    },
-    {
-      label: "Navigate",
-      items: [
-        {
-          label: "React Website",
-          icon: "pi pi-external-link",
-          url: "https://reactjs.org/",
-        },
-        {
-          label: "Router",
-          icon: "pi pi-upload",
-          command: (e) => {
-            //router.push('/fileupload');
-          },
-        },
-      ],
     },
   ];
   
@@ -71,11 +28,12 @@ export const UserDisplayWithMenu = () => {
     <div className="card flex justify-content-center">
       <Toast ref={toast}></Toast>
       <Menu model={items} popup ref={menu} />
-      <div
+      <Button
+        outlined
         onClick={(e) => menu.current.toggle(e)}
       >
         <UserDisplay user={user}/>
-      </div>
+    </Button>
     </div>
   );
 }
