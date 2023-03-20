@@ -11,8 +11,8 @@ export const NavBar = () => {
   );
   const end = (<LoginButton />);
   return (
-      <div className="absolute w-screen flex justify-content-end p-3">
-        <div className="rounded glass flex flex-wrap gap-3 align-items-center justify-content-between p-4" style={{maxWidth:"350px", width:"100%"}}>
+      <div className="absolute w-screen flex sm:justify-content-end justify-content-center p-3">
+        <div className="rounded glass flex flex-wrap gap-3 align-items-center justify-content-between p-4 navWidth">
           {start}
           {end}
         </div>
