@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>road trip designer.</title>
+        <title>road trip designer</title>
         <meta
           name="Road Trip Designer"
           content="Plan your next road trip with ease."
