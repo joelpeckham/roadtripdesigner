@@ -3,7 +3,7 @@ import { LoginButton } from "@/components/LoginButton";
 export const NavBar = () => {
   const start = (
     <div className="flex gap-3 align-items-center">
-      <i className="pi pi-car" style={{transform:"scale(1.3)"}}></i>
+      <i className="pi pi-car ml-2" style={{transform:"scale(1.3)"}}></i>
       <p>
         <strong>road trip designer.</strong>
       </p>

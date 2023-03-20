@@ -99,7 +99,7 @@ export const RegisterForm = ({closeModalFunction}) => {
                                 <Button type='button' label='Cancel' className="mt-2 p-button-text p-button-danger" onClick={(e)=>closeModalFunction(e)}/>
                             </div>
                             <div className="field col m-0">
-                                <Button type="submit" label="Submit" className="mt-2" />
+                                <Button type="submit" label="Register" className="mt-2" />
                             </div>
                         </div>
                     </form>
