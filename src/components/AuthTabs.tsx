@@ -3,14 +3,13 @@ import { TabView, TabPanel } from "primereact/tabview";
 import { RegisterForm } from "@/components/RegisterForm";
 import { LoginForm } from "@/components/LoginForm";
 import { useRouter } from "next/router";
-
+const router = useRouter();
 interface AuthTabsProps {
   closeModal: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null | undefined) => void;
   redirect?: string;
 }
 export const AuthTabs = ({closeModal, redirect}:AuthTabsProps) => {
   if (redirect) {
-    const router = useRouter();
     closeModal  = () => router.push(redirect);
   }
   const [activeTabIndex, setActiveTabIndex] = useState(0);

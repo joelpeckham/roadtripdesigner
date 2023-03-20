@@ -32,6 +32,7 @@ const LoginPage = () => {
   );
 };
 
+
 export default withAuthUser({
   whenAuthed: AuthAction.REDIRECT_TO_APP,
   whenUnauthedBeforeInit: AuthAction.SHOW_LOADER,
