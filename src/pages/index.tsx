@@ -26,8 +26,7 @@ const Home = () => {
                 create a trip, add stops, and then view the trip on a map.
               </p>
               <p className="text-xl">
-                To get started, click the &lquo;Login&rquo; button in the top right
-                corner.
+                {'To get started, click the "Login" button in the top right corner.'}
               </p>
             </Card>
           </div>
