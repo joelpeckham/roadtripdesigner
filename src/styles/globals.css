@@ -47,3 +47,22 @@ a {
 .rounded {
   border-radius: var(--radius);
 }
+
+.cardWidth {
+  margin:0.5rem;
+  width: calc(33.333% - 1rem);
+}
+@media screen and (max-width: 750px) {
+  .cardWidth {
+  margin:0.5rem;
+  width: calc(50% - 1rem);
+}
+}
+@media screen and (max-width: 480px) {
+  .cardWidth {
+  margin:0.5rem;
+  width: 100%;
+}
+}
+
+

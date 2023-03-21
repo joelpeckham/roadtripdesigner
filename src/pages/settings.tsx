@@ -49,14 +49,13 @@ const Settings = () => {
       <div className="flex justify-content-center w-screen h-screen">
         <div className="siteWidth p-3">
           <NavBar />
-          <div className="p-4">
+          <div className="pr-4 pl-4">
             <div className="flex justify-content-start align-items-baseline">
               <i className="pi pi-cog mr-3" style={{ fontSize: "1.5rem" }}></i>
               <Toast ref={toast} />
               <ConfirmDialog />
               <h1>Settings</h1>
             </div>
-            <Divider type="solid" />
             <div className="card">
               <Button
                 onClick={confirmAccountDelete}

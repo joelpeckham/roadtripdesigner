@@ -47,6 +47,7 @@ export const UserDisplayWithMenu = () => {
       <Button
         outlined
         onClick={(e) => menu.current.toggle(e)}
+        severity="secondary"
       >
         <UserDisplay user={user}/>
     </Button>

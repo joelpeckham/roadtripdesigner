@@ -26,7 +26,7 @@ export const NavBar = () => {
   }
   return (
     <div className="w-full flex sm:justify-content-end justify-content-center">
-      <div className="rounded glass flex flex-wrap gap-3 align-items-center justify-content-between p-4 navWidth">
+      <div className="rounded glass flex flex-wrap gap-3 align-items-center justify-content-between p-4 mb-3 navWidth">
         {start}
         {end}
       </div>
