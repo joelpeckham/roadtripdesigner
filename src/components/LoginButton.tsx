@@ -2,7 +2,7 @@ import { Button } from "primereact/button";
 import { AuthModalOverlay } from "@/components/AuthModalOverlay";
 import { AuthModalDialog } from "@/components/AuthModalDialog";
 import { MutableRefObject, useRef, useState } from "react";
-import { useWindowSize } from "@/components/hooks/useWindowSize";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 enum AuthModalType {
   DIALOG = "dialog",
