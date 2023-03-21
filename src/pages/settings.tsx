@@ -7,7 +7,7 @@ import { Button } from 'primereact/button';
 import { getAuth, deleteUser } from "firebase/auth";
 import { authErrorToMessage } from "../../authErrorToMessage";
 
-const settings = () => {
+const Settings = () => {
     const toast : MutableRefObject<any> = useRef(null);
     const accept = async () => {
         const auth = getAuth();
@@ -54,4 +54,4 @@ export default withAuthUser({
   whenUnauthedAfterInit: AuthAction.REDIRECT_TO_LOGIN,
   authPageURL: "/login",
   LoaderComponent: SpinnyMcSpinface,
-})(settings);
+})(Settings);
