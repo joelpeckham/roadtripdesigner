@@ -6,7 +6,9 @@ import { DataView } from "primereact/dataview";
 import React, { useState, useEffect } from "react";
 import { TripsService } from "@/service/TripsService";
 import { Card } from "primereact/card";
-import { Button } from 'primereact/button';
+import { Button } from "primereact/button";
+import { SpeedDial } from "primereact/speeddial";
+import Image from "next/image"
 
 interface Trip {
   id: string;
@@ -17,22 +19,78 @@ interface Trip {
 }
 
 const TripGridItem = (props: Trip) => {
+  function openTripItem() {
+    console.log("Opening trip... ", props.id);
+  }
   const header = (
-    <img
+    <Image
       alt="Card"
       src={props.image}
       className="h-8rem sm:h-12rem md:h-15rem w-full"
-      style={{ objectFit: "cover", borderRadius: "6px 6px 0px 0px" }}
+      width={300}
+      height={300}
+      style={{
+        objectFit: "cover",
+        borderRadius: "6px 6px 0px 0px",
+        cursor: "pointer",
+      }}
+      onClick={openTripItem}
     />
   );
+
+  const speedDialItems = [
+    {
+      icon: "pi pi-trash",
+      label: "Delete",
+      command: () => {
+        console.log("Delete");
+      },
+    },
+    {
+      icon: "pi pi-clone",
+      label: "Duplicate Trip",
+      command: () => {
+        console.log("Duplicate");
+      },
+    },
+    {
+      icon: "pi pi-users",
+      label: "Invite Friends",
+      command: () => {
+        console.log("Invite");
+      },
+    },
+  ];
+
+  const footer = (
+    <div className="flex justify-content-end align-items-end gap-2 h-full">
+      <Button icon="pi pi-pencil" rounded outlined aria-label="Edit" onClick={openTripItem}></Button>
+      <div style={{position:"relative", width:"3rem"}}>
+        <SpeedDial
+          aria-label="Trip Options"
+          model={speedDialItems}
+          transitionDelay={80}
+          buttonClassName="p-button-outlined p-button-secondary speedDialButtonSmall"
+          showIcon="pi pi-ellipsis-h"
+          hideIcon="pi pi-times"
+          radius={0.8}
+          style={{ position: "absolute", bottom: "0", left: "0" }}
+        />
+      </div>
+    </div>
+  );
+
   return (
     <Card
       title={props.name}
       subTitle={props.date}
       className="cardWidth"
       header={header}
+      footer={footer}
     >
-      <p className="m-0">{props.description}</p>
+      {/* <div className="flex flex-direction-column justify-content-end">
+        <div>{footer}</div>
+      </div> */}
     </Card>
   );
 };

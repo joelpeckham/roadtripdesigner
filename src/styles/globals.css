@@ -65,4 +65,20 @@ a {
 }
 }
 
+.speedDialButtonSmall{
+  width: 3rem !important;
+  height: 3rem !important;
+}
 
+.p-card.p-component{
+  display: flex;
+  flex-direction: column;
+}
+.p-card-body{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.p-card-footer{
+  height:100%;
+}
